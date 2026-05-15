@@ -28,3 +28,45 @@ setState(() {
 ## 入门建议
 
 小页面、小交互优先掌握 `setState`，先建立刷新直觉，再学更复杂的状态管理。
+
+## 一个完整的最小例子
+
+```dart
+class CounterPage extends StatefulWidget {
+  const CounterPage({super.key});
+
+  @override
+  State<CounterPage> createState() => _CounterPageState();
+}
+
+class _CounterPageState extends State<CounterPage> {
+  int count = 0;
+
+  void increment() {
+    setState(() {
+      count++;
+    });
+  }
+}
+```
+
+这段代码的关键流程是：
+
+1. 用户触发一个动作
+2. 你在 `setState` 里改状态
+3. Flutter 重新执行 `build`
+4. 新的状态显示到界面上
+
+## 一个很重要的习惯
+
+`setState` 里只放“状态修改”本身即可。
+
+比如更推荐：
+
+```dart
+setState(() {
+  count++;
+});
+```
+
+而不是把大量无关逻辑都塞进去。

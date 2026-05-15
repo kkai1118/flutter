@@ -34,3 +34,34 @@ Widget build(BuildContext context) {
 ## 初学者先记住
 
 `context` 不是页面对象，它更像“当前位置的上下文入口”。
+
+## 为什么 `build` 会反复执行
+
+初学者很容易误以为 `build` 只会执行一次。
+
+其实很多情况下，界面变化后会重新执行 `build`，比如：
+
+- 调用了 `setState`
+- 父组件重建了
+- 依赖的状态变化了
+
+所以要养成一个习惯：
+
+- `build` 里主要负责“描述界面”
+- 不要在 `build` 里做重副作用逻辑
+
+## `context` 最容易踩的一个点
+
+很多 Flutter API 都需要 `context`，但它不是随便哪个位置都能用。
+
+比如你常会看到：
+
+```dart
+Navigator.of(context).push(...);
+Theme.of(context);
+```
+
+可以先记住：
+
+- `context` 总是和当前 Widget 所在位置有关
+- 它越像“树上的当前位置”，你越容易理解很多 API 为什么依赖它
