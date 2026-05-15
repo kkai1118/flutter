@@ -33,6 +33,7 @@
 - [11 补充：页面跳转与路由](11-navigation.md)
 - [12 补充：生命周期与异步界面](12-lifecycle-and-async.md)
 - [13 补充：数据流入门](13-data-flow.md)
+- [15 补充：样式与主题](15-styling-and-theme.md)
 
 <a id="chapters-practice"></a>
 ## 调试与进阶
